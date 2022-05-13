@@ -102,39 +102,95 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
-
-
-
+~~~
+STEP 1: Open Quartus II and select new project and choose the file location.
+STEP 2: Module Declaration. Module should have the file name.
+STEPS 3: Input-Output Delecaration.
+STEPS 4: Use assign declaration and wire to define the functionality of logic circuits.
+STEP 5: At the end give endmodule.
+STEP 6: Run the program and choose RTL viewer to get RTL realization.
+~~~
 ### PROGRAM 
-/*
+~~~
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: SYED MUHAMMED ZAHI
+RegisterNumber: 212221230114
 
 
+SR FLIPFLOP:
 
+module sr(s,r,clk,Q,Qbar);
+input s,r,Clk;
+output Q,Qbar;
+wire X,Y;
+nand (X,s,Clk);
+nand (Y,r,Clk);
+nand (Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
 
+D FLIPFLOP:
 
+module DF (D,Clock,Q,Qbar);
+input D,Clock;
+output Q,Qbar;
+assign Dbar = ~D;
+wire X,Y;
+nand (X,D,Clock);
+nand (Y,Dbar,Clock);
+nand (Q,X,Qbar);
+nand (Qbar,Y,Q);
+endmodule
 
-### RTL LOGIC FOR FLIPFLOPS 
+JK FLIPFLOP:
 
+module jk(J,K,clk,Q,Qbar);
+input J,K,clk;
+output Q,Qbar;
+wire P,S;
+nand (P,J,clk,Qbar);
+nand (S,K,clk,Q);
+nand (Q,P,Qbar);
+nand (Qbar,S,Q);
+endmodule
 
+T FLIPFLOP:
 
+module TF (T,Clock,Q,Qbar);
+input T,Clock;
+output Q,Qbar;
+wire A,B;
+nand (A,T,Clock,Qbar);
+nand (B,T,Clock,Q);
+nand (Q,A,Qbar);
+nand (Qbar,B,Q);
+endmodule
+~~~
 
+### RTL LOGIC FOR FLIPFLOP
+## SR FLIPFLOP:
+![image](https://user-images.githubusercontent.com/94187572/168337998-2682f2b2-3e46-427e-bf73-e37d719f37fa.png)
+## TIMING DIAGRAM FOR SR FLIPFLOP
+![image](https://user-images.githubusercontent.com/94187572/168337945-00ef2f9b-a179-4046-be2d-9dd867c5a356.png)
 
+## RTL LOGIC FOR FLIPFLOPS
+## JK FLIP FLOP:
+![image](https://user-images.githubusercontent.com/94187572/168338130-d82e1c35-cc33-4a0d-92c3-402cbbad6869.png)
+## TIMING DIAGRAM FOR JK FLIPFLOP
+![image](https://user-images.githubusercontent.com/94187572/168338344-076ea5bf-29d8-4cfd-aaaf-8da2c9dc15af.png)
 
+## RTL LOGIC FOR FLIPFLOPS
+## D FLIPFLOP:
+![image](https://user-images.githubusercontent.com/94187572/168338469-b75f715d-b14f-4a91-be8f-15ff7ef51550.png)
+## TIMING DIAGRAM FOR D FLIPFLOP
+![image](https://user-images.githubusercontent.com/94187572/168338543-73ae3cd5-db21-4d13-bc2d-2ffdd23920d3.png)
 
-
-
-### TIMING DIGRAMS FOR FLIP FLOPS 
-
-
-
-
-
-
+## RTL LOGIC FOR FLIPFLOPS
+## T FLIPFLOP:
+![image](https://user-images.githubusercontent.com/94187572/168338592-a76667d8-fc36-46f2-8c48-343690b242ed.png)
+## TIMING DIAGRAM FOR T MFLIPFLOP
+![image](https://user-images.githubusercontent.com/94187572/168338681-fc02fc8b-083a-4281-ba73-f28137608fa2.png)
 
 
 ### RESULTS 
+All the flipflops are implemented using verilog and their functionality has been validated using their functional tables.
